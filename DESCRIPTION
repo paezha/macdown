@@ -1,11 +1,28 @@
 Package: macdown
-Type: Package
-Title: What the Package Does (Title Case)
+Title: An updated R Markdown thesis template using the bookdown package
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Authors@R: c(
+    person("Chester", "Ismay", email = "chester.ismay@gmail.com", role = c("cre", "aut")),
+    person("Nick", "Solomon", email = "nick@nicksolomon.me", role = "aut"),
+    person("Antonio", "Paez", email = "paezha@mcmaster.ca", role = "aut"))
+Description: This is a modified version of the thesisdown package. It uses the 
+    bookdown package and LaTeX graduate thesis templates from McMaster University, 
+    this package aims to encourage reproducible research using simple Markdown 
+    syntax while embedding all of the `R` code to produce plots and analyses as well.
+Maintainer: Antonio Paez <paezha@mcmaster.ca>
+Depends:
+    R (>= 3.2.0)
+Imports: 
+    dplyr,
+    ggplot2,
+    bookdown,
+    knitr,
+    here
+Suggests:
+    remotes,
+    usethis
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+SystemRequirements: pandoc (>= 1.18) - https://pandoc.org
+RoxygenNote: 7.1.1
