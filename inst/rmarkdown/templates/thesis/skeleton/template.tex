@@ -1,0 +1,340 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% McMaster Masters/Doctoral Thesis
+% LaTeX Template
+% Version 2.2 (11/23/15)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+% Then subsequently from http://www.overleaf.com
+%
+% Version 2.0 major modifications by:
+% Vel (vel@latextemplates.com)
+%
+% Original authors:
+% Steven Gunn  (http://users.ecs.soton.ac.uk/srg/softwaretools/document/templates/)
+% Sunil Patel (http://www.sunilpatel.co.uk/thesis-template/)
+%
+% Modified to McMaster format by Benjamin Furman (contact: https://www.xenben/com; Most up
+% to date template at https://github.com/benjaminfurman/McMaster_Thesis_Template,
+% occasionally updated on Overleaf template page)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+% DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[
+11pt, % The default document font size, options: 10pt, 11pt, 12pt
+oneside, % Two side (alternating margins) for binding by default, uncomment to switch to one side
+english, % other languages available
+singlespacing, % Single line spacing, alternatives: onehalfspacing or doublespacing
+%draft, % Uncomment to enable draft mode (no pictures, no links, overfull hboxes indicated)
+%nolistspacing, % If the document is onehalfspacing or doublespacing, uncomment this to set spacing in lists to single
+%liststotoc, % Uncomment to add the list of figures/tables/etc to the table of contents
+%toctotoc, % Uncomment to add the main table of contents to the table of contents
+]{macthesis} % The class file specifying the document structure
+
+
+%----------------------------------------------------------------------------------------
+% Import packages here
+%----------------------------------------------------------------------------------------
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+
+\usepackage{lmodern} % could change font type by calling a different package
+\usepackage{lastpage} % count pages
+\usepackage{siunitx} % for scientific units (micro-liter, etc)
+\setcounter{tocdepth}{2} % so that only section and sub sections appear in Table of Contents. Remove or set depth to 3 to include sub-sub-sections
+
+%----------------------------------------------------------------------------------------
+% Handling Citations
+%----------------------------------------------------------------------------------------
+\usepackage[backend=biber, giveninits=true, doi=false, natbib=true, url=false, eprint=false, style=authoryear, sorting=nyt, maxcitenames=2, maxbibnames=99, uniquename=false, uniquelist=false, dashed=false]{biblatex} % can change the maxbibnames to cut long author lists to specified length followed by et al., currently set to 99.
+\DeclareFieldFormat[article,inbook,incollection,inproceedings,patent,thesis,unpublished]{title}{#1\isdot} % removes quotes around title
+\renewbibmacro*{volume+number+eid}{%
+  \printfield{volume}%
+%  \setunit*{\adddot}% DELETED
+  \printfield{number}%
+  \setunit{\space}%
+  \printfield{eid}}
+\DeclareFieldFormat[article]{number}{\mkbibparens{#1}}
+%\renewcommand*{\newunitpunct}{\space} % remove period after date, but I like it.
+\renewbibmacro{in:}{\ifentrytype{article}{}{\printtext{\bibstring{in}\intitlepunct}}} % this remove the "In: Journal Name" from articles in the bibliography, which happens with the ynt
+\renewbibmacro*{note+pages}{%
+    \printfield{note}%
+    \setunit{,\space}% could add punctuation here for after volume
+    \printfield{pages}%
+    \newunit}
+\DefineBibliographyStrings{english}{% clears the pp from pages
+  page = {\ifbibliography{}{\adddot}},
+  pages = {\ifbibliography{}{\adddot}},
+}
+\DeclareNameAlias{sortname}{last-first}
+\renewcommand*{\nameyeardelim}{\addspace} % remove comma in text between name and date
+\addbibresource{Bibliography.bib} % The filename of the bibliography
+\usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
+
+% you'll have to play with the citation styles to resemble the standard in your field, or just leave them as is here.
+% or, if there is a bst file you like, just get rid of all this biblatex stuff and go back to bibtex.
+
+% This code is to fix cslreferences in new pandoc see: https://github.com/mpark/wg21/issues/54
+$if(csl-refs)$
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newenvironment{CSLReferences}%
+  {$if(csl-hanging-indent)$\setlength{\parindent}{0pt}%
+  \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces$endif$}%
+  {\par}
+$endif$
+
+%----------------------------------------------------------------------------------------
+% Collect all your header information from the chapters here, things like acronyms, custom commands, necessary packages, etc.
+%----------------------------------------------------------------------------------------
+\usepackage{parskip} %this will put spaces between paragraphs
+\setlength{\parindent}{15pt} % this will create and indent on all but the first paragraph of each section.
+% should maybe change to glossaries package
+\usepackage{acro}
+\DeclareAcronym{est}{
+	short = EST,
+	long  = expressed sequence tags
+}
+
+\DeclareAcronym{Xl}{
+	short = \textit{X.~laevis},
+	long  = \textit{Xenopus~laevis}
+}
+\DeclareAcronym{Xg}{
+	short = \textit{X.~gilli},
+	long  = \textit{Xenopus~gilli}
+}
+
+\usepackage{etoolbox}
+\preto\chapter{\acresetall} % resets acronyms for each chapter
+
+\usepackage{xspace} %helps spacing with custom commands.
+\newcommand{\oddname}{{\sc SoME goOfY LonG ThiNg With an AwkWarD NAme}\xspace}
+
+
+\usepackage{pgfplotstable} % a much better way to handle tables
+\pgfplotsset{compat=1.12}
+
+% \usepackage{float} % if you need to demand figure/table placement, then this will allow you to use [H], which demands a figure placement. Beware, making LaTeX do things it doesn't want may lead to oddities.
+
+
+%%%%
+% LINK COLORS
+% You can control the link colors at the end of the McMasterThesis.cls file. There is also a true/false option there to turn off all link colors.
+%%%%
+
+
+%----------------------------------------------------------------------------------------
+%	THESIS INFORMATION
+%----------------------------------------------------------------------------------------
+
+\title{$title$}
+%\thesistitle{Thesis Title} % Your thesis title, print it elsewhere with \ttitle
+\author{$author$}
+%\author{John \textsc{Smith}} % Your name, print it elsewhere with \authorname
+\bdegree{$bdegree$}
+\mdegree{$mdegree$}
+%Previous degrees % print it elsewhere with \bdeg and \mdeg
+\date{$date$}
+% The month and year that you submit your FINAL draft TO THE LIBRARY (May or December)
+\university{$university$}
+%\university{\href{http://www.mcmaster.ca/}{McMaster University}} % Your university's name and URL, print it elsewhere with \univname
+%\division{$division$}
+\faculty{$faculty$} % Your faculty's name and URL, print it elsewhere with \facname
+\department{$department$} % Your department's name and URL, print it elsewhere with \deptname
+\subject{$subject$} % Your subject area, print it elsewhere with \subjectname
+%\group{\href{http://researchgroup.university.com}{Research Group Name}} % Your research group's name and URL, print it elsewhere with \groupname
+\supervisor{$supervisor$}
+%\supervisor{Dr. Jane \textsc{Smith}} % Your supervisor's name, print it elsewhere with \supname
+\examiner{$examiner$} % Your examiner's name, print it elsewhere with \examname
+\degree{$degree$}
+%\degree{Doctor of Philosophy} % Your degree name, print it elsewhere with \degreename
+\addresses{} % Your address, print it elsewhere with \addressname
+\keywords{} % Keywords for your thesis, print it elsewhere with \keywordnames
+
+
+% this sets up hyperlinks
+\hypersetup{pdftitle=\ttitle} % Set the PDF's title to your title
+\hypersetup{pdfauthor=\authorname} % Set the PDF's author to your name
+\hypersetup{pdfkeywords=\keywordnames} % Set the PDF's keywords to your keywords
+
+\begin{document}
+
+\frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
+
+\pagestyle{plain} % Default to the plain heading style until the thesis style is called for the body content
+
+%----------------------------------------------------------------------------------------
+%	Half Title (lay title)
+%----------------------------------------------------------------------------------------
+%\begin{halftitle} % could not get this environment working
+%\vspace*{\fill}
+\vspace{6cm}
+\begin{center}
+\ttitle
+\end{center}
+%\vspace*{\fill}
+\pagenumbering{gobble} % leave this here, McMaster doesn't want this page numbered
+%\end{halftitle}
+\clearpage
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+\pagenumbering{gobble}
+\begin{center}
+
+\vfill
+\textsc{\Large \ttitle} \\
+
+\vfill
+{By \authorname\, \bdeg $if(mdegree)$\, \mdeg $endif$}
+
+
+ \vfill
+{\large \textit{A Thesis Submitted to the School of Graduate Studies in the Partial Fulfillment of the Requirements for the Degree \degreename}}\\
+
+\vfill
+{\large \univname\, \copyright\, Copyright by \authorname\, \today}\\[4cm] % replace \today with the submission date
+
+\end{center}
+
+
+%----------------------------------------------------------------------------------------
+%	Descriptive note numbered ii
+%----------------------------------------------------------------------------------------
+% Need to add below info
+\newpage
+\pagenumbering{roman} % leave to turn numbering back on
+\setcounter{page}{2} % leave here to make this page numbered ii, a Grad School requirement
+
+\noindent % stops indent on next line
+\univname \\
+\degreename\, (\the\year) \\
+Hamilton, Ontario (\deptname) \\[1.5cm]
+TITLE: \ttitle \\
+AUTHOR: \authorname\,  %list previous degrees
+(\univname)  \\
+SUPERVISOR: \supname\, \\
+NUMBER OF PAGES: \pageref{lastoffront}, \pageref{LastPage}  % put in iv and number
+
+\clearpage
+
+%----------------------------------------------------------------------------------------
+%	Lay abstract number iii
+%----------------------------------------------------------------------------------------
+% not actually included in most theses, though requested by the GSA
+% uncomment below lines if you want to include one
+%\section*{Lay Abstract}
+%\addchaptertocentry{Lay Abstract}
+% Type it here
+%\clearpage
+
+%----------------------------------------------------------------------------------------
+%	QUOTATION PAGE
+%----------------------------------------------------------------------------------------
+
+$if(quotation)$
+\vspace*{0.2\textheight}
+
+\noindent\enquote{\itshape $quotation$}\bigbreak
+
+\hfill $qauthor$
+$endif$
+
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% optional page stuff
+%----------------------------------------------------------------------------------------
+% can do physical constraints and symbols pages, see the original thesis example on overleaf if you want to include them at https://www.overleaf.com/latex/templates/template-for-a-masters-slash-doctoral-thesis/mkzrzktcbzfl#.VlPeicorpE4
+%----------------------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------------------
+%	DEDICATION
+%----------------------------------------------------------------------------------------
+
+$if(dedication)$
+    $dedication$
+$endif$
+
+\clearpage
+
+%----------------------------------------------------------------------------------------
+%	ABSTRACT PAGE
+%----------------------------------------------------------------------------------------
+
+\section*{\Huge Abstract}
+\addchaptertocentry{Abstract}
+% Type your abstract here.
+$abstract$
+\clearpage
+
+%----------------------------------------------------------------------------------------
+%	ACKNOWLEDGEMENTS
+%----------------------------------------------------------------------------------------
+
+$if(acknowledgements)$
+  \begin{acknowledgements}
+  \addchaptertocentry{\acknowledgementname} % Add the acknowledgments to the table of contents
+    $acknowledgements$
+  \end{acknowledgements}
+$endif$
+
+%----------------------------------------------------------------------------------------
+%	LIST OF CONTENTS/FIGURES/TABLES PAGES
+%----------------------------------------------------------------------------------------
+
+\tableofcontents % Prints the main table of contents
+
+\listoffigures % Prints the list of figures
+
+\listoftables % Prints the list of tables
+
+%----------------------------------------------------------------------------------------
+%	ABBREVIATIONS
+%----------------------------------------------------------------------------------------
+% many theses don't use this section, as it will be declared at first use and again each chapter. Uncomment these four lines to activate if you want
+%\clearpage
+%\section*{\Huge Acronyms}
+%\addchaptertocentry{Acronyms}
+%\printacronyms[name] % name without an option stops the header
+
+%----------------------------------------------------------------------------------------
+%	DECLARATION PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{declaration}
+\addchaptertocentry{\authorshipname}
+
+\noindent I, \authorname, declare that this thesis titled, \enquote{\ttitle} and the work presented in it are my own. I confirm that:
+
+$declarations$
+
+\end{declaration}
+
+
+%----------------------------------------------------------------------------------------
+% The following bit is just here to make sure we end up on a new page and get the total number of roman numeral
+\label{lastoffront}
+\clearpage
+% make sure this command is on the last of your frontmatter pages, i.e. only this command, a \clearpage then \mainmatter
+% should be fine without modification
+%----------------------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------------------
+%	THESIS MAIN BODY
+%----------------------------------------------------------------------------------------
+
+\mainmatter % here the regular arabic numbering starts
+$body$
+
+\end{document}

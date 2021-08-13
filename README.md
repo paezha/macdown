@@ -63,11 +63,9 @@ Have you created a thesisdown template for your institution and would like to ha
 
 -->
 
-### Using thesisdown from Chester's GitHub
+### Using macdown
 
-Special thanks to [Ben Marwick](https://github.com/benmarwick) for helping to add a lot more clarity to the directions below from the [README of his spin-off `huskydown` package](https://github.com/benmarwick/huskydown/blob/master/README.md).
-
-Using **thesisdown** has some prerequisites which are described below. To compile PDF documents using **R**, you are going to need to have LaTeX installed. By far the easiest way to install LaTeX on any platform is with the [tinytex](https://yihui.name/tinytex/) R package:
+Using **macdown** has some prerequisites which are described below. To compile PDF documents using **R**, you are going to need to have LaTeX installed. By far the easiest way to install LaTeX on any platform is with the [tinytex](https://yihui.name/tinytex/) R package:
 
 ```{r}
 install.packages(c('tinytex', 'rmarkdown'))
@@ -86,7 +84,7 @@ To use **macdown** from [RStudio](https://www.rstudio.com/products/rstudio/downl
 
 1) Ensure that you have already installed LaTeX and the fonts described above, and are using the latest version of [RStudio](https://www.rstudio.com/products/rstudio/download/). You can use `macdown` without RStudio. For example, you can write the Rmd files in your favourite text editor (e.g. [Atom](https://atom.io/), [Notepad++](https://notepad-plus-plus.org/)). But RStudio is probably the easiest tool for writing both `R` code and text in your thesis. It also provides a nice way to build your thesis while editing. We'll proceed assuming that you have decided to use the RStudio workflow.
 
-2) Install the **bookdown** and **macdown** packages. Note that **macdown** is not available on CRAN and `install.packages("thesisdown")` will not work. Use `remotes::install_github()` as shown below instead to install the package.
+2) Install the **bookdown** and **macdown** packages. Note that **macdown** is not available on CRAN and `install.packages("macdown")` will not work. Use `remotes::install_github()` as shown below instead to install the package.
 
 ```{r}
 if (!require("remotes")) install.packages("remotes", repos = "https://cran.rstudio.org")
@@ -96,17 +94,32 @@ remotes::install_github("paezha/macdown")
 
 Note that you may need to restart RStudio at this point for the following dialog to show up.
 
-3) Use the **New R Markdown** dialog to select **Thesis**:
+3) Use the **New R Markdown** dialog to select macdown **Thesis**:
 
-![New R Markdown](images/thesis_rmd.png)
+![New R Markdown](images/create-new-rmd.png)
+![Create macdown thesis](images/select-macdown.png)
 
-Note that this will currently only **Knit** if you name the directory `index` as shown above. This guarantees that `index.html` is generated correctly for the Gitbook version of the thesis.
+Note that this will currently only **Knit** if you name the document `index` as shown above. This guarantees that `index.html` is generated correctly for the Gitbook version of the thesis.
 
-4) After choosing which type of output you'd like in the YAML at the top of index.Rmd, **Knit** the `index.Rmd` file to get the book in PDF or HTML formats.
+4) Customize the information for the thesis in the YAML at the top of index.Rmd. There you can enter your name, title of the thesis, abstract, etc.
 
+![Customize information](images/customize-yaml.png)
+
+
+5) Create R markdown documents with the content of your thesis. Each chapter could be a separate R markdown document. To include in the thesis, use chunks in `index.rmd` as follows:
+
+```
+
+```
+
+**Knit** the `index.Rmd` file to get the thesis in PDF format.
+
+<!--
 ### Day-to-day writing of your thesis 
 
 You need to edit the individual chapter R Markdown files to write your thesis. It's recommended that you version control your thesis using GitHub if possible. RStudio can also easily sync up with GitHub to make the process easier. While writing, you should `git commit` your work frequently, after every major activity on your thesis. For example, every few paragraphs or section of text, and after major step of analysis development. You should `git push` at the end of each work session before you leave your computer or change tasks. For a gentle, novice-friendly guide to getting starting with using Git with R and RStudio, see <https://happygitwithr.com/>.
+
+--> 
 
 ## Rendering
 
@@ -120,12 +133,11 @@ The following components are ones you should edit to customize your thesis:
 
 ### `_bookdown.yml`
 
-This is the main configuration file for your thesis. You can change the name of your outputted file here for your thesis and other options about your thesis here.
+This is the main configuration file for your thesis. You can change the name of your outputted file here and other options about your thesis here.
 
 ### `index.Rmd`
 
-This file contains all the meta information that goes at the beginning of your
-document. You'll need to edit the top portion of this file (the YAML) to put your name on the first page, the title of your thesis, etc. Note that you need to have at least one chapter start in the `index.Rmd` file for the build to work. For the template, this is done with `# Introduction` in the example from the template.
+This file contains all the meta information that goes at the beginning of your document. You'll need to edit the top portion of this file (the YAML) to put your name on the first page, the title of your thesis, etc. Note that you need to have at least one chapter start in the `index.Rmd` file for the build to work. For the template, this is done with `# Preface` in the example from the template.
 
 ### `01-chap1.Rmd`, `02-chap2.Rmd`, etc.
 
