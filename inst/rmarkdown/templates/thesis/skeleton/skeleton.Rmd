@@ -28,6 +28,10 @@ output:
 # (e.g., abstract, acknowledgements) below or use code similar to line 25-26 
 # for the .RMD files. If you are NOT producing a PDF, delete or silence
 # lines 25-39 in this YAML header.
+lay_abstract: |
+  The lay abstract must be 150 words or less.
+  
+  It must explain the key goals and contributions of the thesis in lay terms that are accessible to the general public. 
 abstract: |
   This is the abstract.
   

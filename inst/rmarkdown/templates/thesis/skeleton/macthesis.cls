@@ -210,12 +210,14 @@
 \fancypagestyle{thesis}{%
 	%\fancyhead[LE,RO]{\rmfamily\thepage} %commented out to remove page number in header
 	%\fancyhead[RE,LO]{\slshape\MakeMarkcase{\rightmark}}% \cfoot{\makebox[\textwidth][c]{something centered in footer}}
+    \setlength{\headheight}{25.2232pt}
     \fancyhead[C]{\slshape\MakeMarkcase{\rightmark}}%
     \fancyfoot[C]{\thepage} % center the page number
 }
 \else % If we are in one sided, print the headers on the same positions on all pages
 	\fancypagestyle{thesis}{%
 	%\lhead{\slshape\MakeMarkcase{\rightmark}}% The left top header
+    \setlength{\headheight}{25.2232pt}
     \fancyhead[C]{\slshape\MakeMarkcase{\rightmark}} % uncomment to center align header
 %	\rhead{\rmfamily\thepage}% The right top header
     \fancyfoot[C]{\thepage}
@@ -258,7 +260,6 @@
 
 \renewcommand*{\title}[1]{\def\ttitle{#1}}
 \renewcommand*{\author}[1]{\def\authorname{#1}}
-%date?
 \newcommand*{\university}[1]{\def\univname{#1}}
 \newcommand*{\faculty}[1]{\def\facname{#1}}
 \newcommand*{\department}[1]{\def\deptname{#1}}
@@ -269,8 +270,6 @@
 \newcommand*{\addresses}[1]{\def\addressname{#1}}
 \newcommand*{\bdegree}[1]{\def\bdeg{#1}}
 \newcommand*{\mdegree}[1]{\def\mdeg{#1}}
-%\newcommand{\declarations}
-%\newcommand*{\group}[1]{\def\groupname{#1}}
 \newcommand*{\keywords}[1]{\def\keywordnames{#1}}
 
 %----------------------------------------------------------------------------------------

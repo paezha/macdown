@@ -10,6 +10,49 @@ The {#rmd-basics} text after the chapter declaration will allow us to link throu
 
 Here is a brief introduction into using _R Markdown_. _Markdown_ is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. _R Markdown_ provides the flexibility of _Markdown_ with the implementation of **R** input and output.  For more details on using _R Markdown_ see <https://rmarkdown.rstudio.com>.  
 
-Be careful with your spacing in _Markdown_ documents.  While whitespace largely is ignored, it does at times give _Markdown_ signals as to how to proceed.  As a habit, try to keep everything left aligned whenever possible, especially as you type a new paragraph.  In other words, there is no need to indent basic text in the Rmd document (in fact, it might cause your text to do funny things if you do).
+Be careful with your spacing in _Markdown_ documents.  While whitespace largely is ignored, it does at times give _Markdown_ signals as to how to proceed. As a habit, try to keep everything left aligned whenever possible, especially as you type a new paragraph. In other words, there is no need to indent basic text in the Rmd document (in fact, it might cause your text to do funny things if you do).
 
 Here is a reference to @angel2000.
+
+# Writing
+
+You can use `R` code in your document. For example:
+
+````markdown
+`r ''````{r ch1-load-packages, message=FALSE}
+plot(cars)
+```
+
+```{r ch1-load-packages, echo = FALSE, message=FALSE}
+library(tidyverse)
+```
+
+Naming the code chunks is convenient for navigating your document. You can use chunk options to control what the code does and how it is displayed. See Yihui Xie's documentation about chunk options https://yihui.org/knitr/options/. In the chunk above `message=FALSE` forces the chunk to not display messages when the packages are loaded.
+
+Of course, unless you are explicitly illustrating/discussing the code, you might not want the code to appear in the thesis! As another example, a chunk would _not_ be displayed _at all_ in the output document if `echo=FALSE`.
+
+```{r ch1-load-data, echo=FALSE}
+data(mpg)
+```
+
+You can create elegant figures and tables using `R` and displaying them in your thesis.
+
+Figure \ref{fig:ch1-scatterplot} is an example of a figure generated using the package `ggplot`.
+
+```{r ch1-scatterplot, echo=FALSE, out.width="0.8\\linewidth", fig.cap="\\label{fig:ch1-scatterplot}Example of a scatterplot"}
+ggplot(data = mpg) +
+  geom_point(aes(x = displ, y = hwy))
+```
+
+Table \ref{tab:summary-statistics} is an example of a table created using the package `kableExtra`.
+
+```{r ch1-table, echo=FALSE}
+kableExtra::kable(mpg %>%
+                    select(displ, year, cyl) %>%
+                    summary(),
+                  "latex",
+                  booktabs = TRUE,
+                  caption = "\\label{tab:summary-statistics}Example of a table with summary statistics")
+```
+
+

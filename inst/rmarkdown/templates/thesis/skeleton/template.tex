@@ -38,7 +38,6 @@ singlespacing, % Single line spacing, alternatives: onehalfspacing or doublespac
 %toctotoc, % Uncomment to add the main table of contents to the table of contents
 ]{macthesis} % The class file specifying the document structure
 
-
 %----------------------------------------------------------------------------------------
 % Import packages here
 %----------------------------------------------------------------------------------------
@@ -49,6 +48,23 @@ singlespacing, % Single line spacing, alternatives: onehalfspacing or doublespac
 \usepackage{lastpage} % count pages
 \usepackage{siunitx} % for scientific units (micro-liter, etc)
 \setcounter{tocdepth}{2} % so that only section and sub sections appear in Table of Contents. Remove or set depth to 3 to include sub-sub-sections
+
+%----------------------------------------------------------------------------------------
+% Define a blank page
+%----------------------------------------------------------------------------------------
+\def\blankpage{%
+      \clearpage%
+      \thispagestyle{empty}%
+      \addtocounter{page}{-1}%
+      \null%
+      \clearpage}
+
+%----------------------------------------------------------------------------------------
+%	Highlight Code Chunks
+%----------------------------------------------------------------------------------------
+$if(highlighting-macros)$
+  $highlighting-macros$
+$endif$
 
 %----------------------------------------------------------------------------------------
 % Handling Citations
@@ -205,6 +221,41 @@ $endif$
 {\large \univname\, \copyright\, Copyright by \authorname\, \today}\\[4cm] % replace \today with the submission date
 
 \end{center}
+\blankpage
+\clearpage
+
+%----------------------------------------------------------------------------------------
+%	QUOTATION PAGE
+%----------------------------------------------------------------------------------------
+
+$if(quotation)$
+\vspace*{0.2\textheight}
+
+\noindent\enquote{\itshape $quotation$}\bigbreak
+
+\hfill $qauthor$
+$endif$
+
+\blankpage
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% optional page stuff
+%----------------------------------------------------------------------------------------
+% can do physical constraints and symbols pages, see the original thesis example on overleaf if you want to include them at https://www.overleaf.com/latex/templates/template-for-a-masters-slash-doctoral-thesis/mkzrzktcbzfl#.VlPeicorpE4
+%----------------------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------------------
+%	DEDICATION
+%----------------------------------------------------------------------------------------
+
+$if(dedication)$
+    $dedication$
+$endif$
+
+\blankpage
+\clearpage
 
 
 %----------------------------------------------------------------------------------------
@@ -232,50 +283,23 @@ NUMBER OF PAGES: \pageref{lastoffront}, \pageref{LastPage}  % put in iv and numb
 %----------------------------------------------------------------------------------------
 % not actually included in most theses, though requested by the GSA
 % uncomment below lines if you want to include one
-%\section*{Lay Abstract}
-%\addchaptertocentry{Lay Abstract}
-% Type it here
-%\clearpage
-
-%----------------------------------------------------------------------------------------
-%	QUOTATION PAGE
-%----------------------------------------------------------------------------------------
-
-$if(quotation)$
-\vspace*{0.2\textheight}
-
-\noindent\enquote{\itshape $quotation$}\bigbreak
-
-\hfill $qauthor$
+\section*{Lay Abstract}
+$if(lay_abstract)$
+  $lay_abstract$
 $endif$
-
+\blankpage
 \clearpage
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% optional page stuff
-%----------------------------------------------------------------------------------------
-% can do physical constraints and symbols pages, see the original thesis example on overleaf if you want to include them at https://www.overleaf.com/latex/templates/template-for-a-masters-slash-doctoral-thesis/mkzrzktcbzfl#.VlPeicorpE4
-%----------------------------------------------------------------------------------------
 
 %----------------------------------------------------------------------------------------
-%	DEDICATION
-%----------------------------------------------------------------------------------------
-
-$if(dedication)$
-    $dedication$
-$endif$
-
-\clearpage
-
-%----------------------------------------------------------------------------------------
-%	ABSTRACT PAGE
+%	ABSTRACT PAGE number iv
 %----------------------------------------------------------------------------------------
 
 \section*{\Huge Abstract}
 \addchaptertocentry{Abstract}
 % Type your abstract here.
 $abstract$
+\blankpage
 \clearpage
 
 %----------------------------------------------------------------------------------------
@@ -288,6 +312,8 @@ $if(acknowledgements)$
     $acknowledgements$
   \end{acknowledgements}
 $endif$
+\blankpage
+\clearpage
 
 %----------------------------------------------------------------------------------------
 %	LIST OF CONTENTS/FIGURES/TABLES PAGES
@@ -335,6 +361,7 @@ $declarations$
 %----------------------------------------------------------------------------------------
 
 \mainmatter % here the regular arabic numbering starts
+\pagestyle{thesis}
 $body$
 
 \end{document}
