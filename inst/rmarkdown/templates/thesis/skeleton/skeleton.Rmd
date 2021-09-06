@@ -27,7 +27,7 @@ output:
 # If you are creating a PDF you'll need to write your preliminary content 
 # (e.g., abstract, acknowledgements) below or use code similar to line 25-26 
 # for the .RMD files. If you are NOT producing a PDF, delete or silence
-# lines 25-39 in this YAML header.
+# lines 31-56 in this YAML header.
 lay_abstract: |
   The lay abstract must be 150 words or less.
   

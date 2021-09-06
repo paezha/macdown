@@ -1,4 +1,4 @@
 name:  Thesis
 description: >
  Template for creating a Graduate Thesis at McMaster University using R Markdown based on McMaster LaTeX templates and the R bookdown and thesisdown packages.
-
+create_dir: true

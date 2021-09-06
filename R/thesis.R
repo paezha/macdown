@@ -32,6 +32,8 @@ thesis_pdf <- function(toc = TRUE, toc_depth = 3, highlight = "default", ...) {
 
   # Mostly copied from knitr::render_sweave
   base$knitr$opts_chunk$comment <- NA
+  #base$knitr$opts_knit$cache <- FALSE
+  base$knitr$opts_knit$fig.path <- "_bookdown_files/"
   # base$knitr$opts_chunk$fig.align <- "center"
 
   old_opt <- getOption("bookdown.post.latex")
@@ -52,7 +54,7 @@ thesis_pdf <- function(toc = TRUE, toc_depth = 3, highlight = "default", ...) {
 #' @return A gitbook webpage
 #' @examples
 #' \dontrun{
-#' output:thesisdown::thesis_gitbook
+#' output:macdown::thesis_gitbook
 #' }
 thesis_gitbook <- function(...) {
   config_default <- list(
@@ -111,7 +113,7 @@ thesis_gitbook <- function(...) {
 #' the Reed Senior Thesis Word template
 #' @examples
 #' \dontrun{
-#' output:thesisdown::thesis_word
+#' output:macdown::thesis_word
 #' }
 thesis_word <- function(...) {
   base <- bookdown::word_document2(...)
@@ -134,7 +136,7 @@ thesis_word <- function(...) {
 #' @return A ebook version of the thesis
 #' @examples
 #' \dontrun{
-#' output:thesisdown::thesis_epub
+#' output:macdown::thesis_epub
 #' }
 thesis_epub <- function(...) {
   base <- bookdown::epub_book(...)
@@ -155,7 +157,7 @@ fix_envs <- function(x) {
 
   i3 <- c(
     i3,
-    if (length(i2 <- grep(end_reg, x))) {
+    if (length(i2t <- grep(end_reg, x))) {
       (i2 + 1)[grepl("^\\s*$", x[i2 + 1])]
     }
   )

@@ -33,12 +33,6 @@ Creates an R Markdown thesis template as an ebook
 }
 
 \author{
-\strong{Maintainer}: Chester Ismay \email{chester.ismay@gmail.com}
-
-Authors:
-\itemize{
-  \item Nick Solomon \email{nick@nicksolomon.me}
-  \item Antonio Paez \email{paezha@mcmaster.ca}
-}
+\strong{Maintainer}: Antonio Páez \email{paezha@mcmaster.ca} (\href{https://orcid.org/0000-0001-6912-9919}{ORCID})
 
 }
