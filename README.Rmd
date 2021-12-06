@@ -54,7 +54,7 @@ To use **macdown** from [RStudio](https://www.rstudio.com/products/rstudio/downl
 
 2) Install the **bookdown** and **macdown** packages. Note that **macdown** is not available on CRAN and `install.packages("macdown")` will not work. Use `remotes::install_github()` as shown below instead to install the package.
 
-```{r}
+```{r eval=FALSE}
 if (!require("remotes")) 
   install.packages("remotes", 
                    repos = "https://cran.rstudio.org")

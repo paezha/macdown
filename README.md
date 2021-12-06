@@ -80,14 +80,10 @@ To use **macdown** from
 if (!require("remotes")) 
   install.packages("remotes", 
                    repos = "https://cran.rstudio.org")
-#> Loading required package: remotes
 if (!require("bookdown")) 
   install.packages("bookdown", 
                    repos = "https://cran.rstudio.org")
-#> Loading required package: bookdown
 remotes::install_github("paezha/macdown")
-#> Skipping install of 'macdown' from a github remote, the SHA1 (0c8d9688) has not changed since last install.
-#>   Use `force = TRUE` to force installation
 ```
 
 Note that you may need to restart RStudio at this point for the
