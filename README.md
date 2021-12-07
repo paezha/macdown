@@ -14,7 +14,7 @@ gitbook version is fully-functional. The Word and epub versions have no
 templates behind them, and are essentially calls to the appropriate
 functions in bookdown.
 
-If you are new to working with `bookdown`/`rmarkdown`, please read over
+If you are new to working with {bookdown}/{rmarkdown}, please read over
 the documentation available in the `gitbook` template at
 <https://thesisdown.netlify.com/>. This is also available at
 <https://ismayc.github.io/thesisdown_book>.
@@ -30,16 +30,16 @@ The current output for the four versions is here:
 Under the hood, the McMaster Graduate Thesis LaTeX template is used to
 ensure that documents conform precisely to submission standards. At the
 same time, composition and formatting can be done using lightweight
-[markdown](https://rmarkdown.rstudio.com/authoring_basics.html) syntax,
-and `R` code and its output can be seamlessly included using
-[rmarkdown](https://rmarkdown.rstudio.com).
+[{markdown}](https://rmarkdown.rstudio.com/authoring_basics.html)
+syntax, and `R` code and its output can be seamlessly included using
+[{rmarkdown}](https://rmarkdown.rstudio.com).
 
 ### Using macdown
 
-Using **macdown** has some prerequisites which are described below. To
-compile PDF documents using **R**, you are going to need to have LaTeX
+Using {macdown} has some prerequisites which are described below. To
+compile PDF documents using `R`, you are going to need to have LaTeX
 installed. By far the easiest way to install LaTeX on any platform is
-with the [tinytex](https://yihui.name/tinytex/) R package:
+with the [{tinytex}](https://yihui.name/tinytex/) R package:
 
 ``` r
 install.packages(c('tinytex', 'rmarkdown'))
@@ -55,13 +55,13 @@ to knit as well. Here is one such example of how to do so:
 tinytex::tlmgr_install("babel-portuges")
 ```
 
-To use **macdown** from
+To use {macdown} from
 [RStudio](https://www.rstudio.com/products/rstudio/download/):
 
 1.  Ensure that you have already installed LaTeX and the fonts described
     above, and are using the latest version of
     [RStudio](https://www.rstudio.com/products/rstudio/download/). You
-    can use `macdown` without RStudio. For example, you can write the
+    can use {macdown} without RStudio. For example, you can write the
     Rmd files in your favourite text editor
     (e.g. [Atom](https://atom.io/),
     [Notepad++](https://notepad-plus-plus.org/)). But RStudio is
@@ -70,11 +70,10 @@ To use **macdown** from
     editing. We’ll proceed assuming that you have decided to use the
     RStudio workflow.
 
-2.  Install the **bookdown** and **macdown** packages. Note that
-    **macdown** is not available on CRAN and
-    `install.packages("macdown")` will not work. Use
-    `remotes::install_github()` as shown below instead to install the
-    package.
+2.  Install the {bookdown} and {macdown} packages. Note that {macdown}
+    is not available on CRAN and `install.packages("macdown")` will not
+    work. Use `remotes::install_github()` as shown below instead to
+    install the package.
 
 ``` r
 if (!require("remotes")) 
@@ -86,25 +85,28 @@ if (!require("bookdown"))
 remotes::install_github("paezha/macdown")
 ```
 
-Note that you may need to restart RStudio at this point for the
-following dialog to show up.
+Note that you may need to restart RStudio at this point before the
+template becomes available in the menu.
 
-3.  Use the **New R Markdown** dialog to select macdown **Thesis**:
+3.  Create a project to work on your thesis! Do not nest your thesis as
+    part of another project, since this will confuse the directory
+    structure.
+
+4.  Use the **New R Markdown** dialog to select macdown **Thesis**:
 
 ![New R Markdown](man/figures/create-new-rmd.png) ![Create macdown
 thesis](man/figures/select-macdown.png)
 
 Note that this will currently only **Knit** if you name the document
-`index` as shown above. This guarantees that `index.html` is generated
-correctly for the Gitbook version of the thesis.
+`index` as shown above.
 
-4.  Customize the information for the thesis in the YAML at the top of
+5.  Customize the information for the thesis in the YAML at the top of
     index.Rmd. There you can enter your name, title of the thesis,
     abstract, etc.
 
 ![Customize information](man/figures/customize-yaml.png)
 
-5.  Create R markdown documents with the content of your thesis. Each
+6.  Create R markdown documents with the content of your thesis. Each
     chapter could be a separate R markdown document. To include in the
     thesis, use chunks in `index.rmd` as follows:
 
