@@ -61,7 +61,7 @@
 </h1></div>
 <p>This project is inspired by the <a href="https://github.com/rstudio/bookdown" class="external-link">bookdown</a> and <a href="https://github.com/ismayc/thesisdown" class="external-link">thesisdown</a> packages, adapted to provide a template for writing a McMaster graduate thesis in R markdown. This is work in progress.</p>
 <p>Currently, the PDF uses McMaster Graduate Thesis LaTeX template. The gitbook version is fully-functional. The Word and epub versions have no templates behind them, and are essentially calls to the appropriate functions in bookdown.</p>
-<p>If you are new to working with <code>bookdown</code>/<code>rmarkdown</code>, please read over the documentation available in the <code>gitbook</code> template at <a href="https://thesisdown.netlify.com/" class="external-link uri">https://thesisdown.netlify.com/</a>. This is also available at <a href="https://ismayc.github.io/thesisdown_book" class="external-link uri">https://ismayc.github.io/thesisdown_book</a>.</p>
+<p>If you are new to working with {bookdown}/{rmarkdown}, please read over the documentation available in the <code>gitbook</code> template at <a href="https://thesisdown.netlify.com/" class="external-link uri">https://thesisdown.netlify.com/</a>. This is also available at <a href="https://ismayc.github.io/thesisdown_book" class="external-link uri">https://ismayc.github.io/thesisdown_book</a>.</p>
 <!--
 The current output for the four versions is here:
 - [PDF](https://github.com/ismayc/thesisdown_book/blob/gh-pages/thesis.pdf) (Generating LaTeX file is available [here](https://github.com/ismayc/thesisdown_book/blob/gh-pages/thesis.tex) with other files in the [book directory](https://github.com/ismayc/thesisdown_book/tree/gh-pages).)
@@ -69,11 +69,11 @@ The current output for the four versions is here:
 - [ePub](https://github.com/ismayc/thesisdown_book/blob/gh-pages/thesis.epub)
 - [gitbook](https://ismayc.github.io/thesisdown_book)
 -->
-<p>Under the hood, the McMaster Graduate Thesis LaTeX template is used to ensure that documents conform precisely to submission standards. At the same time, composition and formatting can be done using lightweight <a href="https://rmarkdown.rstudio.com/authoring_basics.html" class="external-link">markdown</a> syntax, and <code>R</code> code and its output can be seamlessly included using <a href="https://rmarkdown.rstudio.com" class="external-link">rmarkdown</a>.</p>
+<p>Under the hood, the McMaster Graduate Thesis LaTeX template is used to ensure that documents conform precisely to submission standards. At the same time, composition and formatting can be done using lightweight <a href="https://rmarkdown.rstudio.com/authoring_basics.html" class="external-link">{markdown}</a> syntax, and <code>R</code> code and its output can be seamlessly included using <a href="https://rmarkdown.rstudio.com" class="external-link">{rmarkdown}</a>.</p>
 <div class="section level3">
 <h3 id="using-macdown">Using macdown<a class="anchor" aria-label="anchor" href="#using-macdown"></a>
 </h3>
-<p>Using <strong>macdown</strong> has some prerequisites which are described below. To compile PDF documents using <strong>R</strong>, you are going to need to have LaTeX installed. By far the easiest way to install LaTeX on any platform is with the <a href="https://yihui.name/tinytex/" class="external-link">tinytex</a> R package:</p>
+<p>Using {macdown} has some prerequisites which are described below. To compile PDF documents using <code>R</code>, you are going to need to have LaTeX installed. By far the easiest way to install LaTeX on any platform is with the <a href="https://yihui.name/tinytex/" class="external-link">{tinytex}</a> R package:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'tinytex'</span>, <span class="st">'rmarkdown'</span><span class="op">)</span><span class="op">)</span>
 <span class="fu">tinytex</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tinytex/man/install_tinytex.html" class="external-link">install_tinytex</a></span><span class="op">(</span><span class="op">)</span>
@@ -82,10 +82,10 @@ The current output for the four versions is here:
 <p>You may need to install a few extra LaTeX packages on your first attempt to knit as well. Here is one such example of how to do so:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">tinytex</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tinytex/man/tlmgr.html" class="external-link">tlmgr_install</a></span><span class="op">(</span><span class="st">"babel-portuges"</span><span class="op">)</span></code></pre></div>
-<p>To use <strong>macdown</strong> from <a href="https://www.rstudio.com/products/rstudio/download/" class="external-link">RStudio</a>:</p>
+<p>To use {macdown} from <a href="https://www.rstudio.com/products/rstudio/download/" class="external-link">RStudio</a>:</p>
 <ol style="list-style-type: decimal">
-<li><p>Ensure that you have already installed LaTeX and the fonts described above, and are using the latest version of <a href="https://www.rstudio.com/products/rstudio/download/" class="external-link">RStudio</a>. You can use <code>macdown</code> without RStudio. For example, you can write the Rmd files in your favourite text editor (e.g. <a href="https://atom.io/" class="external-link">Atom</a>, <a href="https://notepad-plus-plus.org/" class="external-link">Notepad++</a>). But RStudio is probably the easiest tool for writing both <code>R</code> code and text in your thesis. It also provides a nice way to build your thesis while editing. We’ll proceed assuming that you have decided to use the RStudio workflow.</p></li>
-<li><p>Install the <strong>bookdown</strong> and <strong>macdown</strong> packages. Note that <strong>macdown</strong> is not available on CRAN and <code>install.packages("macdown")</code> will not work. Use <code><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">remotes::install_github()</a></code> as shown below instead to install the package.</p></li>
+<li><p>Ensure that you have already installed LaTeX and the fonts described above, and are using the latest version of <a href="https://www.rstudio.com/products/rstudio/download/" class="external-link">RStudio</a>. You can use {macdown} without RStudio. For example, you can write the Rmd files in your favourite text editor (e.g. <a href="https://atom.io/" class="external-link">Atom</a>, <a href="https://notepad-plus-plus.org/" class="external-link">Notepad++</a>). But RStudio is probably the easiest tool for writing both <code>R</code> code and text in your thesis. It also provides a nice way to build your thesis while editing. We’ll proceed assuming that you have decided to use the RStudio workflow.</p></li>
+<li><p>Install the {bookdown} and {macdown} packages. Note that {macdown} is not available on CRAN and <code>install.packages("macdown")</code> will not work. Use <code><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">remotes::install_github()</a></code> as shown below instead to install the package.</p></li>
 </ol>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="st"><a href="https://remotes.r-lib.org" class="external-link">"remotes"</a></span><span class="op">)</span><span class="op">)</span> 
@@ -95,19 +95,20 @@ The current output for the four versions is here:
   <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"bookdown"</span>, 
                    repos <span class="op">=</span> <span class="st">"https://cran.rstudio.org"</span><span class="op">)</span>
 <span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"paezha/macdown"</span><span class="op">)</span></code></pre></div>
-<p>Note that you may need to restart RStudio at this point for the following dialog to show up.</p>
+<p>Note that you may need to restart RStudio at this point before the template becomes available in the menu.</p>
 <ol start="3" style="list-style-type: decimal">
-<li>Use the <strong>New R Markdown</strong> dialog to select macdown <strong>Thesis</strong>:</li>
+<li><p>Create a project to work on your thesis! Do not nest your thesis as part of another project, since this will confuse the directory structure.</p></li>
+<li><p>Use the <strong>New R Markdown</strong> dialog to select macdown <strong>Thesis</strong>:</p></li>
 </ol>
 <p><img src="reference/figures/create-new-rmd.png" alt="New R Markdown"><img src="reference/figures/select-macdown.png" alt="Create macdown thesis"></p>
-<p>Note that this will currently only <strong>Knit</strong> if you name the document <code>index</code> as shown above. This guarantees that <code>index.html</code> is generated correctly for the Gitbook version of the thesis.</p>
-<ol start="4" style="list-style-type: decimal">
+<p>Note that this will currently only <strong>Knit</strong> if you name the document <code>index</code> as shown above.</p>
+<ol start="5" style="list-style-type: decimal">
 <li>Customize the information for the thesis in the YAML at the top of index.Rmd. There you can enter your name, title of the thesis, abstract, etc.</li>
 </ol>
 <div class="figure">
 <img src="reference/figures/customize-yaml.png" alt=""><p class="caption">Customize information</p>
 </div>
-<ol start="5" style="list-style-type: decimal">
+<ol start="6" style="list-style-type: decimal">
 <li>Create R markdown documents with the content of your thesis. Each chapter could be a separate R markdown document. To include in the thesis, use chunks in <code>index.rmd</code> as follows:</li>
 </ol>
 <!-- --><p><strong>Knit</strong> the <code>index.Rmd</code> file to get the thesis in PDF format.</p>
