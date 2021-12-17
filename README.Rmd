@@ -13,13 +13,13 @@ knitr::opts_chunk$set(
 )
 ```
 
-# macdown <img src="man/figures/mcm-col_jpg.jpg" align="right" width=180 />
+# macdown <img src="man/figures/macdown.png" align="right" width=180 />
 
-This project is inspired by the [bookdown](https://github.com/rstudio/bookdown) and [thesisdown](https://github.com/ismayc/thesisdown) packages, adapted to provide a template for writing a McMaster graduate thesis in R markdown. This is work in progress.
+This project is inspired by the [{bookdown}](https://github.com/rstudio/bookdown) and [{thesisdown}](https://github.com/ismayc/thesisdown) packages, adapted to provide a template for writing a McMaster graduate thesis in R markdown.
 
-Currently, the PDF uses McMaster Graduate Thesis LaTeX template. The gitbook version is fully-functional. The Word and epub versions have no templates behind them, and are essentially calls to the appropriate functions in bookdown.
+The PDF uses McMaster Graduate Thesis LaTeX template.
 
-If you are new to working with {bookdown}/{rmarkdown}, please read over the documentation available in the `gitbook` template at https://thesisdown.netlify.com/.  This is also available at https://ismayc.github.io/thesisdown_book.
+If you are new to working with {bookdown}/{rmarkdown}, please read over the documentation available in the `gitbook` template at https://thesisdown.netlify.com/. This is also available at https://ismayc.github.io/thesisdown_book.
 
 <!--
 The current output for the four versions is here:
@@ -31,7 +31,7 @@ The current output for the four versions is here:
 
 Under the hood, the McMaster Graduate Thesis LaTeX template is used to ensure that documents conform precisely to submission standards. At the same time, composition and formatting can be done using lightweight [{markdown}](https://rmarkdown.rstudio.com/authoring_basics.html) syntax, and `R` code and its output can be seamlessly included using [{rmarkdown}](https://rmarkdown.rstudio.com).
 
-### Using macdown
+### Using {macdown}
 
 Using {macdown} has some prerequisites which are described below. To compile PDF documents using `R`, you are going to need to have LaTeX installed. By far the easiest way to install LaTeX on any platform is with the [{tinytex}](https://yihui.name/tinytex/) R package:
 
@@ -73,7 +73,7 @@ Note that you may need to restart RStudio at this point before the template beco
 ![New R Markdown](man/figures/create-new-rmd.png)
 ![Create macdown thesis](man/figures/select-macdown.png)
 
-Note that this will currently only **Knit** if you name the document `index` as shown above.
+**IMPORTANT:** As shown above, you need to name this file `index` so that it correctly **Knits**.
 
 5) Customize the information for the thesis in the YAML at the top of index.Rmd. There you can enter your name, title of the thesis, abstract, etc.
 
@@ -88,16 +88,13 @@ Note that this will currently only **Knit** if you name the document `index` as 
 
 **Knit** the `index.Rmd` file to get the thesis in PDF format.
 
-<!--
 ### Day-to-day writing of your thesis 
 
 You need to edit the individual chapter R Markdown files to write your thesis. It's recommended that you version control your thesis using GitHub if possible. RStudio can also easily sync up with GitHub to make the process easier. While writing, you should `git commit` your work frequently, after every major activity on your thesis. For example, every few paragraphs or section of text, and after major step of analysis development. You should `git push` at the end of each work session before you leave your computer or change tasks. For a gentle, novice-friendly guide to getting starting with using Git with R and RStudio, see <https://happygitwithr.com/>.
 
---> 
-
 ## Rendering
 
-To render your thesis into a PDF, open `index.Rmd` in RStudio and then click the "knit" button. To change the output formats between PDF, gitbook and Word , look at the `output:` field in `index.Rmd` and comment-out the formats you don't want.
+To render your thesis into a PDF, open `index.Rmd` in RStudio and then click the "knit" button.
 
 The PDF file of your thesis will be deposited in the `_book/` directory, by default.
 
