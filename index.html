@@ -57,10 +57,10 @@
 </nav><div class="container template-home">
 <div class="row">
   <main id="main" class="col-md-9"><div class="section level1">
-<div class="page-header"><h1 id="macdown-">macdown <img src="reference/figures/mcm-col_jpg.jpg" align="right" width="180"><a class="anchor" aria-label="anchor" href="#macdown-"></a>
+<div class="page-header"><h1 id="macdown-">macdown <img src="reference/figures/macdown.png" align="right" width="180"><a class="anchor" aria-label="anchor" href="#macdown-"></a>
 </h1></div>
-<p>This project is inspired by the <a href="https://github.com/rstudio/bookdown" class="external-link">bookdown</a> and <a href="https://github.com/ismayc/thesisdown" class="external-link">thesisdown</a> packages, adapted to provide a template for writing a McMaster graduate thesis in R markdown. This is work in progress.</p>
-<p>Currently, the PDF uses McMaster Graduate Thesis LaTeX template. The gitbook version is fully-functional. The Word and epub versions have no templates behind them, and are essentially calls to the appropriate functions in bookdown.</p>
+<p>This project is inspired by the <a href="https://github.com/rstudio/bookdown" class="external-link">{bookdown}</a> and <a href="https://github.com/ismayc/thesisdown" class="external-link">{thesisdown}</a> packages, adapted to provide a template for writing a McMaster graduate thesis in R markdown.</p>
+<p>The PDF uses McMaster Graduate Thesis LaTeX template.</p>
 <p>If you are new to working with {bookdown}/{rmarkdown}, please read over the documentation available in the <code>gitbook</code> template at <a href="https://thesisdown.netlify.com/" class="external-link uri">https://thesisdown.netlify.com/</a>. This is also available at <a href="https://ismayc.github.io/thesisdown_book" class="external-link uri">https://ismayc.github.io/thesisdown_book</a>.</p>
 <!--
 The current output for the four versions is here:
@@ -71,7 +71,7 @@ The current output for the four versions is here:
 -->
 <p>Under the hood, the McMaster Graduate Thesis LaTeX template is used to ensure that documents conform precisely to submission standards. At the same time, composition and formatting can be done using lightweight <a href="https://rmarkdown.rstudio.com/authoring_basics.html" class="external-link">{markdown}</a> syntax, and <code>R</code> code and its output can be seamlessly included using <a href="https://rmarkdown.rstudio.com" class="external-link">{rmarkdown}</a>.</p>
 <div class="section level3">
-<h3 id="using-macdown">Using macdown<a class="anchor" aria-label="anchor" href="#using-macdown"></a>
+<h3 id="using-macdown">Using {macdown}<a class="anchor" aria-label="anchor" href="#using-macdown"></a>
 </h3>
 <p>Using {macdown} has some prerequisites which are described below. To compile PDF documents using <code>R</code>, you are going to need to have LaTeX installed. By far the easiest way to install LaTeX on any platform is with the <a href="https://yihui.name/tinytex/" class="external-link">{tinytex}</a> R package:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
@@ -101,7 +101,7 @@ The current output for the four versions is here:
 <li><p>Use the <strong>New R Markdown</strong> dialog to select macdown <strong>Thesis</strong>:</p></li>
 </ol>
 <p><img src="reference/figures/create-new-rmd.png" alt="New R Markdown"><img src="reference/figures/select-macdown.png" alt="Create macdown thesis"></p>
-<p>Note that this will currently only <strong>Knit</strong> if you name the document <code>index</code> as shown above.</p>
+<p><strong>IMPORTANT:</strong> As shown above, you need to name this file <code>index</code> so that it correctly <strong>Knits</strong>.</p>
 <ol start="5" style="list-style-type: decimal">
 <li>Customize the information for the thesis in the YAML at the top of index.Rmd. There you can enter your name, title of the thesis, abstract, etc.</li>
 </ol>
@@ -112,17 +112,16 @@ The current output for the four versions is here:
 <li>Create R markdown documents with the content of your thesis. Each chapter could be a separate R markdown document. To include in the thesis, use chunks in <code>index.rmd</code> as follows:</li>
 </ol>
 <!-- --><p><strong>Knit</strong> the <code>index.Rmd</code> file to get the thesis in PDF format.</p>
-<!--
-### Day-to-day writing of your thesis 
-
-You need to edit the individual chapter R Markdown files to write your thesis. It's recommended that you version control your thesis using GitHub if possible. RStudio can also easily sync up with GitHub to make the process easier. While writing, you should `git commit` your work frequently, after every major activity on your thesis. For example, every few paragraphs or section of text, and after major step of analysis development. You should `git push` at the end of each work session before you leave your computer or change tasks. For a gentle, novice-friendly guide to getting starting with using Git with R and RStudio, see <https://happygitwithr.com/>.
-
--->
+</div>
+<div class="section level3">
+<h3 id="day-to-day-writing-of-your-thesis">Day-to-day writing of your thesis<a class="anchor" aria-label="anchor" href="#day-to-day-writing-of-your-thesis"></a>
+</h3>
+<p>You need to edit the individual chapter R Markdown files to write your thesis. It’s recommended that you version control your thesis using GitHub if possible. RStudio can also easily sync up with GitHub to make the process easier. While writing, you should <code>git commit</code> your work frequently, after every major activity on your thesis. For example, every few paragraphs or section of text, and after major step of analysis development. You should <code>git push</code> at the end of each work session before you leave your computer or change tasks. For a gentle, novice-friendly guide to getting starting with using Git with R and RStudio, see <a href="https://happygitwithr.com/" class="external-link uri">https://happygitwithr.com/</a>.</p>
 </div>
 <div class="section level2">
 <h2 id="rendering">Rendering<a class="anchor" aria-label="anchor" href="#rendering"></a>
 </h2>
-<p>To render your thesis into a PDF, open <code>index.Rmd</code> in RStudio and then click the “knit” button. To change the output formats between PDF, gitbook and Word , look at the <code>output:</code> field in <code>index.Rmd</code> and comment-out the formats you don’t want.</p>
+<p>To render your thesis into a PDF, open <code>index.Rmd</code> in RStudio and then click the “knit” button.</p>
 <p>The PDF file of your thesis will be deposited in the <code>_book/</code> directory, by default.</p>
 </div>
 <div class="section level2">
