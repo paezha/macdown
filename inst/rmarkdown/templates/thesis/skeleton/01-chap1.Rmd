@@ -46,7 +46,7 @@ ggplot(data = mpg) +
 
 Table \ref{tab:summary-statistics} is an example of a table created using the package `kableExtra`.
 
-```{r ch1-table, echo=FALSE}
+```{r ch1-table, echo=FALSE, warning=FALSE}
 kableExtra::kable(mpg %>%
                     select(displ, year, cyl) %>%
                     summary(),

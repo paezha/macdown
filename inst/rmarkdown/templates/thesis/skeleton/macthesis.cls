@@ -10,8 +10,11 @@
 % Vel (vel@latextemplates.com)
 % Johannes Böttcher
 %
+% Modified for macdown by Antonio Paez
+% See: https://github.com/paezha/macdown
+%
 % Note:
-% This class file defines the structure and design of the template file (main.tex).
+% This class file defines the structure and design of the template file (template.tex).
 %
 % License:
 % CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
@@ -162,8 +165,9 @@
 \renewcommand{\abovechapterspace}{\vspace*{10pt}} % Reduce the whitespace above a chapter heading
 
 \setcounter{tocdepth}{3} % The depth to which the document sections are printed to the table of contents
-\providecommand\addchaptertocentry[1]{%
-\addcontentsline{toc}{chapter}{#1}}
+\ProvideDocumentCommand{\addchaptertocentry}{ m }{%
+	\addcontentsline{toc}{chapter}{#1}%
+}
 
 %----------------------------------------------------------------------------------------
 %	MARGINS
@@ -296,8 +300,8 @@
 %	DECLARATION PAGE DESIGN
 %----------------------------------------------------------------------------------------
 
+\newcommand{\authorshipname}{Declaration of Authorship}
 \providecaptionname{american,australian,british,canadian,english,newzealand,UKenglish,USenglish}{\authorshipname}{Declaration of Authorship} % Declaration of Authorship text for English countries
-\providecaptionname{german,ngerman,austrian,naustrian}{\authorshipname}{Eidesstattliche Erkl\"arung} % Declaration of Authorship text for Germanic countries
 
 \newenvironment{declaration}{
 	\checktoopen
@@ -324,7 +328,7 @@
 %	ABSTRACT PAGE DESIGN
 %----------------------------------------------------------------------------------------
 
-\providecaptionname{german,ngerman,austrian,naustrian}{\byname}{von}
+\newcommand{\abstractname}{Abstract}
 \providecaptionname{american,australian,british,canadian,english,newzealand,UKenglish,USenglish}{\byname}{by}
 \newenvironment{abstract}{
 	\checktoopen
@@ -355,7 +359,6 @@
 %----------------------------------------------------------------------------------------
 
 \providecaptionname{english,british,american}{\abbrevname}{List of Abbreviations}
-\providecaptionname{ngerman,german,austrian,naustrian}{\abbrevname}{Abk\"urzungsverzeichnis}
 \NewDocumentEnvironment{abbreviations}{ m }{%
 	\ifbool{nolistspace}{\begingroup\singlespacing}{}
 	\ifbool{listtoc}{\addchap{\abbrevname}}{\addchap*{\abbrevname}}
@@ -370,7 +373,6 @@
 %----------------------------------------------------------------------------------------
 
 \providecaptionname{english,british,american}{\constantsname}{Physical Constants}
-\providecaptionname{ngerman,german,austrian,naustrian}{\constantsname}{Physikalische Konstanten}
 
 \NewDocumentEnvironment{constants}{ m }{%
 	\ifbool{nolistspace}{\begingroup\singlespacing}{}
@@ -386,7 +388,6 @@
 %----------------------------------------------------------------------------------------
 
 \providecaptionname{english,british,american}{\symbolsname}{List of Symbols}
-\providecaptionname{ngerman,german,austrian,naustrian}{\symbolsname}{Symbolverzeichnis}
 
 \NewDocumentEnvironment{symbols}{ m }{%
 	\ifbool{nolistspace}{\begingroup\singlespacing}{}
@@ -401,8 +402,8 @@
 %	ACKNOWLEDGEMENTS PAGE DESIGN
 %----------------------------------------------------------------------------------------
 
+\newcommand{\acknowledgementname}{Acknowledgements}
 \providecaptionname{american,australian,british,canadian,english,newzealand,UKenglish,USenglish} {\acknowledgementname}{Acknowledgements} % Acknowledgement text for English countries
-\providecaptionname{german,ngerman,austrian,naustrian}{\acknowledgementname}{Danksagung} % Acknowledgement text for Germanic countries
 
 \NewDocumentEnvironment{acknowledgements}{}{%
 \checktoopen

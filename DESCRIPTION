@@ -1,34 +1,34 @@
 Package: macdown
 Title: An updated R Markdown thesis template using the bookdown package
-Version: 0.1.0
+Version: 0.1.1
 Authors@R:
     person(given = "Antonio",
            family = "Páez",
            role = c("aut", "cre"),
            email = "paezha@mcmaster.ca",
            comment = c(ORCID = "0000-0001-6912-9919"))
-Description: This is a modified version of the thesisdown package. It uses the 
+Description: This is a modified version of the 'thesisdown' package. It uses the 
     bookdown package and LaTeX graduate thesis templates from McMaster University, 
     this package aims to encourage reproducible research using simple Markdown 
     syntax while embedding all of the `R` code to produce plots and analyses as well.
 Maintainer: Antonio Paez <paezha@mcmaster.ca>
 Depends:
     R (>= 3.2.0)
-Imports: 
+Suggests:
     dplyr,
     ggplot2,
     bookdown,
     knitr,
     here,
     thesisdown (>= 0.2.0.9000),
-    tinytex
-Suggests:
+    tinytex,
     remotes,
     usethis
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 SystemRequirements: pandoc (>= 1.18) - https://pandoc.org
-RoxygenNote: 7.1.1
+RoxygenNote: 7.2.3
 Remotes: 
     ismayc/thesisdown
+URL: https://paezha.github.io/macdown/

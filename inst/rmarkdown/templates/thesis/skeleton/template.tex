@@ -18,6 +18,8 @@
 % to date template at https://github.com/benjaminfurman/McMaster_Thesis_Template,
 % occasionally updated on Overleaf template page)
 %
+% Modified for macdown by Antonio Paez; most up to date version at https://github.com/paezha/macdown
+%
 % License:
 % CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
 %
@@ -236,9 +238,9 @@ $endif$
 $if(quotation)$
 \vspace*{0.2\textheight}
 
-\noindent\enquote{\itshape $quotation$}\bigbreak
+\noindent\itshape $quotation$\bigbreak
 
-\hfill $qauthor$
+\hfill\textemdash $qauthor$
 $endif$
 
 \blankpage
@@ -301,7 +303,7 @@ $endif$
 %----------------------------------------------------------------------------------------
 
 \section*{\Huge Abstract}
-\addchaptertocentry{Abstract}
+\addchaptertocentry{\abstractname}
 % Type your abstract here.
 $abstract$
 \blankpage
@@ -346,7 +348,7 @@ $endif$
 \begin{declaration}
 \addchaptertocentry{\authorshipname}
 
-\noindent I, \authorname, declare that this thesis titled, \enquote{\ttitle} and the work presented in it are my own. I confirm that:
+\noindent I, \authorname, declare that this thesis titled, \emph{\ttitle} and the work presented in it are my own. I confirm that:
 
 $declarations$
 

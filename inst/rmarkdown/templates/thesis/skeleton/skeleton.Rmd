@@ -1,6 +1,6 @@
 ---
 title: 'My Graduate Thesis'
-author: 'Your R. Name'
+author: 'You R. Name'
 #date: 'May 20xx'
 university: 'McMaster University'
 faculty: 'Faculty of Science'

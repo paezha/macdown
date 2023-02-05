@@ -7,10 +7,7 @@
 \title{macdown: A package for creating Graduate McMaster theses
 using R Markdown}
 \description{
-This is a modified version of the thesisdown package. It uses the 
-    bookdown package and LaTeX graduate thesis templates from McMaster University, 
-    this package aims to encourage reproducible research using simple Markdown 
-    syntax while embedding all of the `R` code to produce plots and analyses as well.
+This is a modified version of the 'thesisdown' package. It uses the bookdown package and LaTeX graduate thesis templates from McMaster University, this package aims to encourage reproducible research using simple Markdown syntax while embedding all of the `R` code to produce plots and analyses as well.
 }
 \section{thesis_gitbook}{
 
@@ -32,6 +29,13 @@ Creates an R Markdown thesis template as a Microsoft Word document
 Creates an R Markdown thesis template as an ebook
 }
 
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://paezha.github.io/macdown/}
+}
+
+}
 \author{
 \strong{Maintainer}: Antonio Páez \email{paezha@mcmaster.ca} (\href{https://orcid.org/0000-0001-6912-9919}{ORCID})
 
