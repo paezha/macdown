@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>/404.html</loc>
+    <loc>https://paezha.github.io/macdown/404.html</loc>
   </url>
   <url>
-    <loc>/LICENSE-text.html</loc>
+    <loc>https://paezha.github.io/macdown/LICENSE-text.html</loc>
   </url>
   <url>
-    <loc>/LICENSE.html</loc>
+    <loc>https://paezha.github.io/macdown/LICENSE.html</loc>
   </url>
   <url>
-    <loc>/authors.html</loc>
+    <loc>https://paezha.github.io/macdown/authors.html</loc>
   </url>
   <url>
-    <loc>/index.html</loc>
+    <loc>https://paezha.github.io/macdown/index.html</loc>
   </url>
   <url>
-    <loc>/reference/index.html</loc>
+    <loc>https://paezha.github.io/macdown/reference/index.html</loc>
   </url>
   <url>
-    <loc>/reference/macdown.html</loc>
+    <loc>https://paezha.github.io/macdown/reference/macdown.html</loc>
   </url>
   <url>
-    <loc>/reference/thesis_epub.html</loc>
+    <loc>https://paezha.github.io/macdown/reference/thesis_epub.html</loc>
   </url>
   <url>
-    <loc>/reference/thesis_gitbook.html</loc>
+    <loc>https://paezha.github.io/macdown/reference/thesis_gitbook.html</loc>
   </url>
   <url>
-    <loc>/reference/thesis_pdf.html</loc>
+    <loc>https://paezha.github.io/macdown/reference/thesis_pdf.html</loc>
   </url>
   <url>
-    <loc>/reference/thesis_word.html</loc>
+    <loc>https://paezha.github.io/macdown/reference/thesis_word.html</loc>
   </url>
 </urlset>
