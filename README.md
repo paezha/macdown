@@ -3,18 +3,11 @@
 
 # macdown <img src="man/figures/macdown.png" align="right" width=180 />
 
-This project is inspired by the
-[{bookdown}](https://github.com/rstudio/bookdown) and
-[{thesisdown}](https://github.com/ismayc/thesisdown) packages, adapted
-to provide a template for writing a McMaster graduate thesis in R
-markdown.
+This project is inspired by the [{bookdown}](https://bookdown.org/) and
+[{thesisdown}](http://thesisdown.rbind.io/) packages, adapted to provide
+a template for writing a McMaster graduate thesis in R markdown.
 
 The PDF uses McMaster Graduate Thesis LaTeX template.
-
-If you are new to working with {bookdown}/{rmarkdown}, please read over
-the documentation available in the `gitbook` template at
-<https://thesisdown.netlify.com/>. This is also available at
-<https://ismayc.github.io/thesisdown_book>.
 
 <!--
 The current output for the four versions is here:
@@ -55,7 +48,7 @@ tinytex::tlmgr_install("babel-portuges")
 To use {macdown} from
 [RStudio](https://www.rstudio.com/products/rstudio/download/):
 
-1.  Ensure that you have already installed LaTeX and the fonts described
+1)  Ensure that you have already installed LaTeX and the fonts described
     above, and are using the latest version of
     [RStudio](https://www.rstudio.com/products/rstudio/download/). You
     can use {macdown} without RStudio. For example, you can write the
@@ -67,7 +60,7 @@ To use {macdown} from
     editing. We’ll proceed assuming that you have decided to use the
     RStudio workflow.
 
-2.  Install the {bookdown} and {macdown} packages. Note that {macdown}
+2)  Install the {bookdown} and {macdown} packages. Note that {macdown}
     is not available on CRAN and `install.packages("macdown")` will not
     work. Use `remotes::install_github()` as shown below instead to
     install the package.
@@ -85,25 +78,42 @@ remotes::install_github("paezha/macdown")
 Note that you may need to restart RStudio at this point before the
 template becomes available in the menu.
 
-3.  Create a project to work on your thesis! Do not nest your thesis as
+3)  Create a project to work on your thesis! Do not nest your thesis as
     part of another project, since this will confuse the directory
     structure.
 
-4.  Use the **New R Markdown** dialog to select macdown **Thesis**:
+<figure>
+<img src="man/figures/create-new-project.png"
+alt="New RStudio Project" />
+<figcaption aria-hidden="true">New RStudio Project</figcaption>
+</figure>
 
-![New R Markdown](man/figures/create-new-rmd.png) ![Create macdown
-thesis](man/figures/select-macdown.png)
+Create your project in a new directory:
 
-**IMPORTANT:** As shown above, you need to name this file `index` so
-that it correctly **Knits**.
+<figure>
+<img src="man/figures/choose-new-directory.png"
+alt="Choose New Directory" />
+<figcaption aria-hidden="true">Choose New Directory</figcaption>
+</figure>
 
-5.  Customize the information for the thesis in the YAML at the top of
+For the type of project select “Thesis Project using macdown”:
+
+<figure>
+<img src="man/figures/choose-thesis-project.png"
+alt="Type of project" />
+<figcaption aria-hidden="true">Type of project</figcaption>
+</figure>
+
+4)  Customize the information for the thesis in the YAML at the top of
     index.Rmd. There you can enter your name, title of the thesis,
     abstract, etc.
 
-![Customize information](man/figures/customize-yaml.png)
+<figure>
+<img src="man/figures/customize-yaml.png" alt="Customize information" />
+<figcaption aria-hidden="true">Customize information</figcaption>
+</figure>
 
-6.  Create R markdown documents with the content of your thesis. Each
+5)  Create R markdown documents with the content of your thesis. Each
     chapter could be a separate R markdown document. To include in the
     thesis, use chunks in `index.rmd` as follows:
 
@@ -178,3 +188,10 @@ source for citation styles is
 Store your figures and data here and reference them in your R Markdown
 files. See the [bookdown book](https://bookdown.org/yihui/bookdown/) for
 details on cross-referencing items using R Markdown.
+
+## Where to find more information
+
+If you are new to working with these packages, there is much more
+information and examples available at
+[{bookdown}](https://bookdown.org/) and
+[{rmarkdown}](https://rmarkdown.rstudio.com/).

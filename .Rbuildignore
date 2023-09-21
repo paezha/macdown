@@ -1,6 +1,7 @@
 ^renv$
 ^renv\.lock$
 ^.*\.Rproj$
+R/.setup.R
 ^\.Rproj\.user$
 ^images$
 ^_pkgdown\.yml$
@@ -10,3 +11,11 @@
 ^LICENSE\.md$
 ^\.github$
 ^data-raw$
+
+
+
+
+
+
+
+

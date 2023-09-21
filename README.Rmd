@@ -15,11 +15,9 @@ knitr::opts_chunk$set(
 
 # macdown <img src="man/figures/macdown.png" align="right" width=180 />
 
-This project is inspired by the [{bookdown}](https://github.com/rstudio/bookdown) and [{thesisdown}](https://github.com/ismayc/thesisdown) packages, adapted to provide a template for writing a McMaster graduate thesis in R markdown.
+This project is inspired by the [{bookdown}](https://bookdown.org/) and [{thesisdown}](http://thesisdown.rbind.io/) packages, adapted to provide a template for writing a McMaster graduate thesis in R markdown.
 
 The PDF uses McMaster Graduate Thesis LaTeX template.
-
-If you are new to working with {bookdown}/{rmarkdown}, please read over the documentation available in the `gitbook` template at https://thesisdown.netlify.com/. This is also available at https://ismayc.github.io/thesisdown_book.
 
 <!--
 The current output for the four versions is here:
@@ -68,19 +66,21 @@ Note that you may need to restart RStudio at this point before the template beco
 
 3) Create a project to work on your thesis! Do not nest your thesis as part of another project, since this will confuse the directory structure.
 
-4) Use the **New R Markdown** dialog to select macdown **Thesis**:
+![New RStudio Project](man/figures/create-new-project.png)
 
-![New R Markdown](man/figures/create-new-rmd.png)
-![Create macdown thesis](man/figures/select-macdown.png)
+Create your project in a new directory: 
 
-**IMPORTANT:** As shown above, you need to name this file `index` so that it correctly **Knits**.
+![Choose New Directory](man/figures/choose-new-directory.png)
 
-5) Customize the information for the thesis in the YAML at the top of index.Rmd. There you can enter your name, title of the thesis, abstract, etc.
+For the type of project select "Thesis Project using macdown":
+
+![Type of project](man/figures/choose-thesis-project.png)
+
+4) Customize the information for the thesis in the YAML at the top of index.Rmd. There you can enter your name, title of the thesis, abstract, etc.
 
 ![Customize information](man/figures/customize-yaml.png)
 
-
-6) Create R markdown documents with the content of your thesis. Each chapter could be a separate R markdown document. To include in the thesis, use chunks in `index.rmd` as follows:
+5) Create R markdown documents with the content of your thesis. Each chapter could be a separate R markdown document. To include in the thesis, use chunks in `index.rmd` as follows:
 
 ```
 
@@ -126,4 +126,9 @@ citation styles is https://github.com/citation-style-language/styles#readme.
 ### `figure/` and `data/`
 
 Store your figures and data here and reference them in your R Markdown files. See the [bookdown book](https://bookdown.org/yihui/bookdown/) for details on cross-referencing items using R Markdown.
+
+## Where to find more information
+
+If you are new to working with these packages, there is much more information and examples available at [{bookdown}](https://bookdown.org/) and [{rmarkdown}](https://rmarkdown.rstudio.com/). 
+
 
