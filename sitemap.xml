@@ -1,36 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://paezha.github.io/macdown/404.html</loc>
-  </url>
-  <url>
-    <loc>https://paezha.github.io/macdown/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>https://paezha.github.io/macdown/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>https://paezha.github.io/macdown/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://paezha.github.io/macdown/index.html</loc>
-  </url>
-  <url>
-    <loc>https://paezha.github.io/macdown/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://paezha.github.io/macdown/reference/macdown.html</loc>
-  </url>
-  <url>
-    <loc>https://paezha.github.io/macdown/reference/thesis_epub.html</loc>
-  </url>
-  <url>
-    <loc>https://paezha.github.io/macdown/reference/thesis_gitbook.html</loc>
-  </url>
-  <url>
-    <loc>https://paezha.github.io/macdown/reference/thesis_pdf.html</loc>
-  </url>
-  <url>
-    <loc>https://paezha.github.io/macdown/reference/thesis_word.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://paezha.github.io/macdown/404.html</loc></url>
+<url><loc>https://paezha.github.io/macdown/LICENSE-text.html</loc></url>
+<url><loc>https://paezha.github.io/macdown/LICENSE.html</loc></url>
+<url><loc>https://paezha.github.io/macdown/authors.html</loc></url>
+<url><loc>https://paezha.github.io/macdown/index.html</loc></url>
+<url><loc>https://paezha.github.io/macdown/reference/index.html</loc></url>
+<url><loc>https://paezha.github.io/macdown/reference/macdown (SFConflict paezha@mcmaster.ca 2023-10-02-09-26-09).html</loc></url>
+<url><loc>https://paezha.github.io/macdown/reference/macdown.html</loc></url>
+<url><loc>https://paezha.github.io/macdown/reference/thesis_epub.html</loc></url>
+<url><loc>https://paezha.github.io/macdown/reference/thesis_gitbook.html</loc></url>
+<url><loc>https://paezha.github.io/macdown/reference/thesis_pdf.html</loc></url>
+<url><loc>https://paezha.github.io/macdown/reference/thesis_word.html</loc></url>
 </urlset>
+
