@@ -80,75 +80,40 @@ $endif$
 %----------------------------------------------------------------------------------------
 % Handling Citations
 %----------------------------------------------------------------------------------------
-\usepackage[backend=biber, giveninits=true, doi=false, natbib=true, url=false, eprint=false, style=authoryear, sorting=nyt, maxcitenames=2, maxbibnames=99, uniquename=false, uniquelist=false, dashed=false]{biblatex} % can change the maxbibnames to cut long author lists to specified length followed by et al., currently set to 99.
-% package xurl wraps long url in the citations.
-\usepackage{xurl}
-\DeclareFieldFormat[article,inbook,incollection,inproceedings,patent,thesis,unpublished]{title}{#1\isdot} % removes quotes around title
-\renewbibmacro*{volume+number+eid}{%
-  \printfield{volume}%
-%  \setunit*{\adddot}% DELETED
-  \printfield{number}%
-  \setunit{\space}%
-  \printfield{eid}}
-\DeclareFieldFormat[article]{number}{\mkbibparens{#1}}
-%\renewcommand*{\newunitpunct}{\space} % remove period after date, but I like it.
-\renewbibmacro{in:}{\ifentrytype{article}{}{\printtext{\bibstring{in}\intitlepunct}}} % this remove the "In: Journal Name" from articles in the bibliography, which happens with the ynt
-\renewbibmacro*{note+pages}{%
-    \printfield{note}%
-    \setunit{,\space}% could add punctuation here for after volume
-    \printfield{pages}%
-    \newunit}
-\DefineBibliographyStrings{english}{% clears the pp from pages
-  page = {\ifbibliography{}{\adddot}},
-  pages = {\ifbibliography{}{\adddot}},
-}
-\DeclareNameAlias{sortname}{last-first}
-\renewcommand*{\nameyeardelim}{\addspace} % remove comma in text between name and date
-\addbibresource{Bibliography.bib} % The filename of the bibliography
-\usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
 
-% you'll have to play with the citation styles to resemble the standard in your field, or just leave them as is here.
-% or, if there is a bst file you like, just get rid of all this biblatex stuff and go back to bibtex.
-
-% This code is to fix cslreferences in new pandoc see: https://github.com/mpark/wg21/issues/54
-%$if(csl-refs)$
-%\newlength{\cslhangindent}
-%\setlength{\cslhangindent}{1.5em}
-%\newenvironment{CSLReferences}%
-%  {$if(csl-hanging-indent)$\setlength{\parindent}{0pt}%
-%  \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces$endif$}%
-%  {\par}
-%$endif$
-
-% https://github.com/ismayc/thesisdown/issues/133
-% From {rticles}
 $if(csl-refs)$
-\newlength{\csllabelwidth}
-\setlength{\csllabelwidth}{3em}
+% definitions for citeproc citations
+\NewDocumentCommand\citeproctext{}{}
+\NewDocumentCommand\citeproc{mm}{%
+\begingroup\def\citeproctext{#2}\cite{#1}\endgroup}
+\makeatletter
+% allow citations to break across lines
+\let\@cite@ofmt\@firstofone
+% avoid brackets around text for \cite:
+\def\@biblabel#1{}
+\def\@cite#1#2{{#1\if@tempswa , #2\fi}}
+\makeatother
 \newlength{\cslhangindent}
 \setlength{\cslhangindent}{1.5em}
-% for Pandoc 2.8 to 2.10.1
-\newenvironment{cslreferences}%
-  {$if(csl-hanging-indent)$\setlength{\parindent}{0pt}%
-  \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces$endif$}%
-  {\par}
-% For Pandoc 2.11+
-% As noted by @mirh [2] is needed instead of [3] for 2.12
-\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
- {% don't indent paragraphs
-  \setlength{\parindent}{0pt}
-  % turn on hanging indent if param 1 is 1
-  \ifodd #1 \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces\fi
-  % set entry spacing
-  \ifnum #2 > 0
-  \setlength{\parskip}{#2\baselineskip}
-  \fi
- }%
- {}
-\usepackage{calc} % for calculating minipage widths
-\newcommand{\CSLBlock}[1]{#1\hfill\break}
-\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
-\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2] % #1 hanging-indent, #2 entry-spacing
+{\begin{list}{}{%
+	\setlength{\itemindent}{0pt}
+	\setlength{\leftmargin}{0pt}
+	\setlength{\parsep}{0pt}
+	% turn on hanging indent if param 1 is 1
+	\ifodd #1
+	\setlength{\leftmargin}{\cslhangindent}
+	\setlength{\itemindent}{-1\cslhangindent}
+	\fi
+	% set entry spacing
+	\setlength{\itemsep}{#2\baselineskip}}}
+{\end{list}}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{\hfill\break\parbox[t]{\linewidth}{\strut\ignorespaces#1\strut}}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
 \newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 $endif$
 

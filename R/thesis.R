@@ -38,112 +38,7 @@ thesis_pdf <- function(toc = TRUE, toc_depth = 3, highlight = "default", ...) {
 
   old_opt <- getOption("bookdown.post.latex")
   options(bookdown.post.latex = fix_envs)
-  on.exit(options(bookdown.post.late = old_opt))
-
-  base
-}
-
-#' Creates an R Markdown gitbook Thesis document
-#'
-#' This is a function called in output in the YAML of the driver Rmd file
-#' to specify the creation of a webpage version of the thesis.
-#'
-#' @param ... Further arguments passed to or from other methods.
-#'
-#' @export
-#' @return A gitbook webpage
-#' @examples
-#' \dontrun{
-#' output:macdown::thesis_gitbook
-#' }
-thesis_gitbook <- function(...) {
-  config_default <- list(
-    toc = list(
-      collapse = "section",
-      before = '<li><a href="./"></a></li>',
-      after = paste(
-        '<li><a href="https://github.com/rstudio/bookdown',
-        'target="blank">Published with bookdown</a></li>'
-      )
-    )
-  )
-
-  listarg <- list(...)
-
-  if (!"split_by" %in% names(listarg)) {
-    listarg$split_by <- "chapter+number"
-  }
-
-  if (!"config" %in% names(listarg)) {
-    listarg$config <- config_default
-  } else {
-    if (!"toc" %in% names(listarg$config)) {
-      listarg$config$toc <- config_default$toc
-    } else {
-      if (!"collapse" %in% names(listarg$config$toc)) {
-        listarg$config$toc$collapse <- config_default$toc$collapse
-      }
-      if (!"before" %in% names(listarg$config$toc)) {
-        listarg$config$toc$before <- config_default$toc$before
-      }
-      if (!"after" %in% names(listarg$config$toc)) {
-        listarg$config$toc$after <- config_default$toc$after
-      }
-    }
-  }
-
-  base <- do.call(bookdown::gitbook, listarg)
-
-  # Mostly copied from knitr::render_sweave
-  base$knitr$opts_chunk$comment <- NA
-  base$knitr$opts_chunk$fig.align <- "center"
-
-  base
-}
-
-#' Creates an R Markdown Word Thesis document
-#'
-#' This is a function called in output in the YAML of the driver Rmd file
-#' to specify the creation of a Microsoft Word version of the thesis.
-#'
-#' @param ... Further arguments passed to or from other methods.
-#'
-#' @export
-#' @return A Word Document based on (hopefully soon, but not currently)
-#' the Reed Senior Thesis Word template
-#' @examples
-#' \dontrun{
-#' output:macdown::thesis_word
-#' }
-thesis_word <- function(...) {
-  base <- bookdown::word_document2(...)
-
-  # Mostly copied from knitr::render_sweave
-  base$knitr$opts_chunk$comment <- NA
-  base$knitr$opts_chunk$fig.align <- "center"
-
-  base
-}
-
-#' Creates an R Markdown epub Thesis document
-#'
-#' This is a function called in output in the YAML of the driver Rmd file
-#' to specify the creation of a epub version of the thesis.
-#'
-#' @param ... Further arguments passed to or from other methods.
-#'
-#' @export
-#' @return A ebook version of the thesis
-#' @examples
-#' \dontrun{
-#' output:macdown::thesis_epub
-#' }
-thesis_epub <- function(...) {
-  base <- bookdown::epub_book(...)
-
-  # Mostly copied from knitr::render_sweave
-  base$knitr$opts_chunk$comment <- NA
-  base$knitr$opts_chunk$fig.align <- "center"
+  on.exit(options(bookdown.post.latex = old_opt))
 
   base
 }
@@ -157,7 +52,7 @@ fix_envs <- function(x) {
 
   i3 <- c(
     i3,
-    if (length(i2t <- grep(end_reg, x))) {
+    if (length(i2 <- grep(end_reg, x))) {
       (i2 + 1)[grepl("^\\s*$", x[i2 + 1])]
     }
   )

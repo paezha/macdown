@@ -15,19 +15,10 @@ degree: 'Doctor of Philosophy'
 knit: bookdown::render_book
 site: bookdown::bookdown_site
 
-# Remove the hashtag to specify which version of output you would like.
-# Can only choose one at a time.
 output:
-  thesisdown::thesis_pdf: default 
+  macdown::thesis_pdf: default 
   keep_tex: true
-#  thesisdown::thesis_gitbook: default         
-#  thesisdown::thesis_word: default
-#  thesisdown::thesis_epub: default
 
-# If you are creating a PDF you'll need to write your preliminary content 
-# (e.g., abstract, acknowledgements) below or use code similar to line 25-26 
-# for the .RMD files. If you are NOT producing a PDF, delete or silence
-# lines 31-56 in this YAML header.
 lay_abstract: |
   The lay abstract must be 150 words or less.
   
