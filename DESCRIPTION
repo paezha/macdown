@@ -1,6 +1,6 @@
 Package: macdown
 Title: An updated R Markdown thesis template using the bookdown package
-Version: 0.1.4
+Version: 0.1.4-1
 Authors@R:
     person(given = "Antonio",
            family = "Páez",
@@ -22,7 +22,8 @@ Encoding: UTF-8
 LazyData: true
 SystemRequirements: pandoc (>= 1.18) - https://pandoc.org
 RoxygenNote: 7.3.2
-URL: https://paezha.github.io/macdown/
+URL: https://paezha.github.io/macdown/, https://github.com/paezha/macdown
+BugReports: https://github.com/paezha/macdown
 Imports: 
     bookdown,
     R.utils

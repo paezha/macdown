@@ -12,6 +12,8 @@ This is a modified version of the 'thesisdown' package. It uses the bookdown pac
 Useful links:
 \itemize{
   \item \url{https://paezha.github.io/macdown/}
+  \item \url{https://github.com/paezha/macdown}
+  \item Report bugs at \url{https://github.com/paezha/macdown}
 }
 
 }
